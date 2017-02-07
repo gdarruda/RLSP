@@ -22,9 +22,9 @@ class Rule(json: JsonAST.JValue) {
     .children
     .map(suffixInfo => {
       SuffixRule((suffixInfo \ "minSize").asInstanceOf[JInt].values.toInt,
-        (suffixInfo \ "replacement").asInstanceOf[JString].values,
-        (suffixInfo \ "suffix").asInstanceOf[JString].values,
-        (suffixInfo \ "exceptions").children.map(_.asInstanceOf[JString].values).toSet[String])
+                 (suffixInfo \ "replacement").asInstanceOf[JString].values,
+                 (suffixInfo \ "suffix").asInstanceOf[JString].values,
+                 (suffixInfo \ "exceptions").children.map(_.asInstanceOf[JString].values).toSet[String])
     })
 
 
@@ -45,10 +45,6 @@ class Rule(json: JsonAST.JValue) {
       false
     }
 
-  }
-
-  def applySuffixRule(word: String, suffixRule: SuffixRule): String = {
-    word.dropRight(suffixRule.suffix.length) + suffixRule.replacement
   }
 
   def evaluate(word: String) : (Boolean, String) = {

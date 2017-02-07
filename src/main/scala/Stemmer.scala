@@ -38,11 +38,16 @@ object Stemmer {
     word map {
       case 'á' => 'a'
       case 'ã' => 'a'
+      case 'â' => 'a'
       case 'é' => 'e'
+      case 'ê' => 'e'
       case 'í' => 'i'
+      case 'î' => 'i'
       case 'ó' => 'o'
       case 'õ' => 'o'
+      case 'ô' => 'o'
       case 'ú' => 'u'
+      case 'û' => 'u'
       case  c: Char => c
     }
 
